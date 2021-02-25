@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>037 Groupwork 5</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+
+</head>
+
+<body class="bg-blue-300">
+
+
+  <div id="app" class = ' max-w-6xl mx-auto  '>
+ 
+    <div class  ="bg-gray-300 p-5 text-center " >
+    <h1 class="text-3xl mt-8 "> Doraemon Gallery( {{ countUnLike }} ), Liked( {{ countLike }} )</h1> 
+   <!-- Photo search -->
+    <photo-search @setpic="setfindpic" @findp="findPicture" > </photo-search>
+    </div>
+
+
+  <!-- Photo item  -->
+    <photo-item  :gallery="gallery" :ind="ind" :nopic="nopic" :choose="choose" :favicon="favicon" :favborder="favborder" 
+    @select ="choosed" @favor="favorite"> </photo-item>
+
+  
+  <!-- Photo view -->
+    <photo-view  :gallery="gallery" :ind="ind" :choose="choose" @close="close" > </photo-view>
+
+</div>
+
+
+
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+  <script src="./PhotoItem.js"></script>
+  <script src="./PhotoSearch.js"></script>
+  <script src="./PhotoView.js"></script>
+
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+
+
+</body>
+
+</html>
