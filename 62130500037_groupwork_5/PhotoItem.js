@@ -27,7 +27,7 @@ app.component('photo-item',{
 
     </h1>    
     </li> 
-  <h1 v-if="nopic == true" class="mb-20 text-5xl">No Photo</h1>
+  <h1 v-if="nopic" class="mb-20 text-5xl">No Photo</h1>
   </ul>
     `,
     data(){
@@ -38,13 +38,13 @@ app.component('photo-item',{
 
     methods:{ 
       sel (index){
-      console.log(index);
+      
       this.$emit("select",index);
 
       },
 
       favo (index){
-        console.log(index);
+        
         this.$emit("favor",index);
   
         }

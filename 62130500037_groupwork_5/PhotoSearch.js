@@ -1,5 +1,8 @@
 app.component('photo-search',{
-    
+    props:{
+        gallery: Object,
+        
+    },
     template: 
     /*html*/
     `
@@ -8,7 +11,7 @@ app.component('photo-search',{
     </span>
   
    <span :class="[schbutton.dnshow ? 'hidden':'']">   
-    <input v-model="wanpic" @keyup.enter=senback @keyup.enter=$emit("findp")  placeholder="Search your Photo" 
+    <input v-model="wanpic" @keyup=senback @keyup=$emit("findp")  placeholder="Search your Photo" 
     class="px-36 py-2 bg-white rounded border-2 border-gray-500 mt-6">
     <button @click = "cancel" class="ml-2 bg-red-500 text-white  py-1 px-2 rounded">Cancel</button>
    </span>
@@ -26,14 +29,16 @@ app.component('photo-search',{
         },
         cancel(){
             this.schbutton.dnshow=true;
+            for(let i = 0 ; i < this.gallery.length;i++){
+                this.gallery[i].dnshow = false;
+            }
+            this.$emit("setnopic",false);
+           this.wanpic = "";
         },
         senback(val){
             this.$emit("setpic",this.wanpic);
         }
-        
-        
 
-       
     } ,
     computed: {
        
