@@ -24,27 +24,21 @@ app.component('photo-search',{
     },
     methods: {
         searchbutton(){
-            this.schbutton.dnshow = false;
-           
+            this.schbutton.dnshow = false;   
         },
+
         cancel(){
             this.schbutton.dnshow=true;
             for(let i = 0 ; i < this.gallery.length;i++){
                 this.gallery[i].dnshow = false;
             }
-            this.$emit("setnopic",false);
+           this.$emit("setnopic",false);
            this.wanpic = "";
         },
-        senback(val){
+
+        senback(){
             this.$emit("setpic",this.wanpic);
         }
 
     } ,
-    computed: {
-       
-        
-        
-        
-
-    }
 })

@@ -1,11 +1,10 @@
 app.component('photo-item',{
     props:{
         gallery: Object,
-        ind :Number,
         nopic : Boolean,
         favicon: String,
         favborder: String,
-        choose : Boolean,
+        
     },
 
     template: 
@@ -30,24 +29,17 @@ app.component('photo-item',{
   <h1 v-if="nopic" class="mb-20 text-5xl">No Photo</h1>
   </ul>
     `,
-    data(){
-        return {
-          inde:0,
-        }
-    },
-
     methods:{ 
-      sel (index){
       
+      sel (index){
       this.$emit("select",index);
 
       },
 
-      favo (index){
-        
-        this.$emit("favor",index);
+      favo (index){  
+      this.$emit("favor",index);
   
-        }
+      },
 
         
 

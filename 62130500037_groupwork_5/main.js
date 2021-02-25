@@ -23,33 +23,24 @@ const app = Vue.createApp({
 
         setnopic (boolean){
         this.nopic = boolean
-
-
         },
 
-
-
         choosed(index){
-            this.ind = index  ;
-            this.choose = true;
-            },
+        this.ind = index  ;
+        this.choose = true;
+        },
             
-            favorite(index){
-            this.gallery[index].fav = !this.gallery[index].fav
-            
-          },
+        favorite(index){
+        this.gallery[index].fav = !this.gallery[index].fav
+        },
 
+        close(){
+        this.choose = false;
+        },
 
-
-
-
-       close(){
-       this.choose = false;
-       },
-       setfindpic(val){
+        setfindpic(val){
         this.findpic = val;
-           
-       },
+        },
         
        
         
@@ -58,40 +49,30 @@ const app = Vue.createApp({
     computed: {
         countUnLike(){
             return this.gallery.filter( im => !im.fav ).length
-        }, countLike(){
+        }, 
+        countLike(){
             return this.gallery.length-this.gallery.filter( im => !im.fav ).length
-        }, findPicture(){ 
+        }, 
+        
+        findPicture(){ 
             this.srcitem=[];
             this.nopic = false;
             for(let i = 0 ; i < this.gallery.length;i++){
                 console.log(this.findpic);
-    
-               //check character from input with array if it not found it will dnshow(<<-dont show)
+     
                 if(this.gallery[i].name.toUpperCase().indexOf(this.findpic.toUpperCase()) ==-1){
                     this.gallery[i].dnshow = true;
-
-                }
-                //if found dontshow it will be false
-                else {
+                }else {
                     this.gallery[i].dnshow=false;
-                    this.srcitem.push(this.gallery[i].name);
-                }
-    
-              }   
-    
-                //Check wa find picture mai? because if it dont show all of picture its mean no picture 
+                    this.srcitem.push(this.gallery[i].name);  }
+            }   
                 if(this.srcitem.length == 0){
-                    this.nopic = true;}
+                this.nopic = true;   }
 
-                    
-                else if(this.findpic.length <1){
-                this.nopic = false;
-                
-                }
             findpic = '';
-               
-               console.log(this.srcitem);
-             }
+            console.log(this.srcitem);
+
+            }
         
         
         

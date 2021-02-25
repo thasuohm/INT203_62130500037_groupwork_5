@@ -29,12 +29,12 @@
     <div class  ="bg-gray-300 p-5 text-center " >
     <h1 class="text-3xl mt-8 "> Doraemon Gallery( {{ countUnLike }} ), Liked( {{ countLike }} )</h1> 
    <!-- Photo search -->
-    <photo-search :gallery="gallery" :nopic="nopic" @setnopic="setnopic" @setpic="setfindpic" @findp="findPicture" > </photo-search>
+    <photo-search :gallery="gallery" @setnopic="setnopic" @setpic="setfindpic" @findp="findPicture" > </photo-search>
     </div>
 
 
   <!-- Photo item  -->
-    <photo-item  :gallery="gallery" :ind="ind" :nopic="nopic" :choose="choose" :favicon="favicon" :favborder="favborder" 
+    <photo-item  :gallery="gallery"  :nopic="nopic" :favicon="favicon" :favborder="favborder" 
     @select ="choosed" @favor="favorite"> </photo-item>
 
   

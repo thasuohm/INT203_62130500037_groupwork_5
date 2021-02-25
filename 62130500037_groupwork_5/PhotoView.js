@@ -14,20 +14,13 @@ app.component('photo-view',{
     <img :src = gallery[this.ind].images  class = "fixed w-96 " style="top: 20%; left: 30%; width: 45%;">
     </span>
     `,
-    data(){
-        return {
-        }
-    },
     computed:{
         checkVal (){
-            if(this.choose){
+         if(this.choose){
          return true;
-            
-            }else
-            
-         return false;
+         }else return false;
 
-        }
+        },
 
     }
 })
