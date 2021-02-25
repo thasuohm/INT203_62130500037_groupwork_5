@@ -62,13 +62,14 @@ const app = Vue.createApp({
             return this.gallery.length-this.gallery.filter( im => !im.fav ).length
         }, findPicture(){ 
             this.srcitem=[];
+            this.nopic = false;
             for(let i = 0 ; i < this.gallery.length;i++){
                 console.log(this.findpic);
     
                //check character from input with array if it not found it will dnshow(<<-dont show)
                 if(this.gallery[i].name.toUpperCase().indexOf(this.findpic.toUpperCase()) ==-1){
                     this.gallery[i].dnshow = true;
-                  
+
                 }
                 //if found dontshow it will be false
                 else {
